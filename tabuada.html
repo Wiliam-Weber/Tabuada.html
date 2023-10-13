@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="port">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada Avançada</title>
+    <script language="JavaScript">
+        function tabuada() {
+            let num = parseInt(document.getElementById('inum').value);
+            let max = parseInt(document.getElementById('imax').value);
+            let allTables = document.getElementById('iall').checked;
+            let resultado = "";
+            
+            if(allTables) {
+                for(let j = 1; j <= num; j++) {
+                    for (let i = 0; i <= max; i++) {
+                        resultado += j + " x " + i + " = " + (j * i);
+                        resultado += "<br>";
+                    }
+                    resultado += "<br>";
+                }
+            } else {
+                for (let i = 0; i <= max; i++) {
+                    resultado += num + " x " + i + " = " + (num * i);
+                    resultado += "<br>";
+                }
+            }
+            
+            document.getElementById('dresultado').innerHTML = resultado;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Tabuada Avançada</h1>
+    <label for="inum">Número: </label>
+    <input type="number" id="inum" value="2" step="1">
+    <br>
+    <label for="imax">Até: </label>
+    <input type="number" id="imax" value="10" step="1">
+    <br>
+    <label for="iall">Todas as tabuadas até o número: </label>
+    <input type="checkbox" id="iall">
+    <br>
+    <button onclick="tabuada()">
+        Exibir
+    </button>
+    <br>
+    <div id="dresultado"></div>
+</body>
+
+</html>
